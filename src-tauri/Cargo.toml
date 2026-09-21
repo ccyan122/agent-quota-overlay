@@ -1,0 +1,49 @@
+[package]
+name = "llm-quota-overlay"
+version = "0.2.0"
+edition = "2021"
+license = "MIT"
+description = "Local-first LLM quota overlay backend"
+
+[lib]
+name = "llm_quota_overlay"
+path = "src/lib.rs"
+
+[features]
+default = []
+desktop = ["dep:tauri", "dep:tauri-plugin-autostart", "dep:tauri-plugin-single-instance"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[[bin]]
+name = "llm-quota-overlay"
+path = "src/main.rs"
+required-features = ["desktop"]
+
+[[bin]]
+name = "quota-probe"
+path = "src/bin/quota-probe.rs"
+
+[[bin]]
+name = "llm-overlay-hook"
+path = "src/bin/llm-overlay-hook.rs"
+
+[[bin]]
+name = "activity-hook-config"
+path = "src/bin/activity-hook-config.rs"
+
+[dependencies]
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["tray-icon"], optional = true }
+tauri-plugin-autostart = { version = "2", optional = true }
+tauri-plugin-single-instance = { version = "2", optional = true }
+thiserror = "2"
+tokio = { version = "1", features = ["io-util", "io-std", "net", "process", "rt", "sync", "time", "macros"] }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Security", "Win32_Security_Authorization", "Win32_Security_Credentials", "Win32_System_JobObjects", "Win32_System_Pipes", "Win32_System_Threading", "Win32_Storage_FileSystem", "Win32_Foundation", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging"] }

@@ -1,0 +1,24 @@
+# Local toolchains and research copies are reproducible, not source artifacts.
+.tools/
+.research/
+.git.sandbox-backup/
+target/
+src-tauri/target/
+desktop-target/
+probe-target/
+node_modules/
+dist/
+src-tauri/gen/
+release/
+.re0/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Runtime-only state. This repository never stores credentials or local quota cache.
+local-data/
+*.local.json
+*.log
+.env
+.env.*
+!.env.example

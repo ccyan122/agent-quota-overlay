@@ -1,0 +1,23 @@
+LLM Quota Overlay notices
+========================
+
+CodeZeno/Claude-Code-Usage-Monitor
+Copyright (c) 2025 Craig Constable
+License: MIT
+Consulted for provider endpoint and response-shape compatibility. No source
+files were copied into this project.
+
+OpenUsage
+Copyright (c) 2026 Robin Ebers
+License: MIT
+Consulted for provider behavior and compatibility research. No source files
+were copied into this project.
+
+The full MIT license text is available in the corresponding checked-out
+reference directories under `.research`.
+
+Pretendard Variable
+Copyright (c) 2021-present, Orioncactus
+License: SIL Open Font License 1.1
+Bundled as `public/fonts/PretendardVariable.woff2`; the complete license is
+included beside the font as `public/fonts/Pretendard-OFL.txt`.

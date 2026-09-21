@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "LLM Quota Overlay",
+  "version": "0.2.0",
+  "identifier": "io.local.llm-quota-overlay",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://127.0.0.1:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "overlay",
+        "title": "LLM Quota Overlay",
+        "width": 328,
+        "height": 332,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false,
+        "shadow": false
+      },
+      {
+        "label": "resets",
+        "title": "Codex Reset Credits",
+        "width": 252,
+        "height": 112,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.localhost; style-src 'self' 'unsafe-inline'; img-src 'self' asset:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "msi"
+    ],
+    "windows": {
+      "wix": {
+        "language": [
+          "ko-KR"
+        ]
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false
+      }
+    },
+    "icon": [
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../THIRD_PARTY_NOTICES": "THIRD_PARTY_NOTICES",
+      "../public/fonts/Pretendard-OFL.txt": "Pretendard-OFL.txt",
+      "../README.md": "README.md"
+    }
+  }
+}

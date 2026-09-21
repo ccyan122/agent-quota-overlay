@@ -1,0 +1,14 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Minimal capability set for the local overlay window and its Codex reset-credit panel.",
+  "windows": [
+    "overlay",
+    "resets"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging",
+    "autostart:default"
+  ]
+}
